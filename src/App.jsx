@@ -1,4 +1,4 @@
-
+import Suport from './components/Suport'
 import './App.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-     <a>oie</a>
+    <Suport/>
     </>
   )
 }
