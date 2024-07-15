@@ -1,7 +1,7 @@
 function Suport() {
   return (
     <article className="bg-slate-700">
-      <h1>Fale Conosco</h1>
+      <h1 className="text-red-400">Fale Conosco</h1>
 
       <form action="">
         <section>
