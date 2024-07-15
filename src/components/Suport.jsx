@@ -1,6 +1,6 @@
 function Suport() {
   return (
-    <article>
+    <article className="bg-slate-700">
       <h1>Fale Conosco</h1>
 
       <form action="">
@@ -30,12 +30,11 @@ function Suport() {
         <section>
           <input type="checkbox" id="contact" name="contact" />
           <label htmlFor="contact">
-            {" "}
-            Concordo em receber mensagem da equipe *
+            {"Concordo em receber mensagem da equipe * "}
           </label>
         </section>
         <section>
-          <input type="submit" value="Enviar" onClick={alert("enviado")} />
+          <input type="submit" value="Enviar" />
         </section>
       </form>
     </article>
