@@ -1,4 +1,4 @@
-import Suport from "./components/Suport";
+import Suport from "./components/pages/Suport";
 import "./App.css";
 
 function App() {
