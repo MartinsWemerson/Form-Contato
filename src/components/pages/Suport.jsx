@@ -2,11 +2,11 @@ import { useState } from "react";
 
 function Suport() {
   return (
-    <article className="bg-white w-5/12  p-10 m-14 ">
+    <article className="bg-white w-5/12 max-sm:w-screen p-10 m-14  border rounded-xl">
       <h1 className="text-3xl mb-10 font-semibold ">Fale Conosco</h1>
 
       <form action="" className="grid grid-cols-2 gap-8">
-        <section className="flex flex-col  ">
+        <section className="flex flex-col max-md:col-span-2  ">
           <label htmlFor="name">Nome *</label>
           <input
             className="border border-green-900 h-12 rounded-md pl-2"
@@ -15,7 +15,7 @@ function Suport() {
             name="name"
           />
         </section>
-        <section className="flex flex-col  ">
+        <section className="flex flex-col max-md:col-span-2 ">
           <label htmlFor="ltname">Sobre Nome *</label>
           <input
             className=" border  border-green-900 h-12 rounded-md pl-2"
@@ -35,8 +35,8 @@ function Suport() {
         </section>
         <section className="col-span-2">
           <label htmlFor="">Tipo de Contato *</label>
-          <article className="grid grid-cols-2  gap-6">
-            <div className=" border  border-green-900 pl-10 h-12 pt-3 rounded-md">
+          <article className="grid grid-cols-2 max-md:grid-cols-1 gap-6 ">
+            <div className=" border  border-green-900 pl-10  h-12 pt-3 rounded-md">
               {" "}
               <input type="radio" id="soliSuport" name="selectContact" />
               <label htmlFor="soliSuport"> Suporte</label>
