@@ -19,7 +19,7 @@ function Suport() {
     e.preventDefault();
     if (validateForm()) {
       alert("Enviado com sucesso!");
-      restForm();
+      resetForm();
     } else {
       alert("Preencha todos os campos obrigatórios");
     }
@@ -152,37 +152,74 @@ function Suport() {
         </section>
         <section className="col-span-2">
           <label htmlFor="">Tipo de Contato *</label>
-          <article className="grid grid-cols-2 max-md:grid-cols-1 gap-6 ">
-            <div className=" border  border-green-900 pl-10  h-12 pt-3 rounded-md">
-              {" "}
-              <input type="radio" id="soliSuport" name="selectContact" />
+          <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6">
+            <div
+              className={`border ${
+                selectedOptionValid ? "border-green-900" : "border-red-500"
+              } pl-10 h-12 pt-3 rounded-md`}
+            >
+              <input
+                type="radio"
+                id="soliSuport"
+                name="selectContact"
+                value="suporte"
+                checked={selectedOption === "suporte"}
+                onChange={handleOptionChange}
+              />
               <label htmlFor="soliSuport"> Suporte</label>
             </div>
-            <div className=" border  border-green-900 pl-10 h-12 pt-3 rounded-md  ">
-              <input type="radio" id="askQuestion" name="selectContact" />
+            <div
+              className={`border ${
+                selectedOptionValid ? "border-green-900" : "border-red-500"
+              } pl-10 h-12 pt-3 rounded-md`}
+            >
+              <input
+                type="radio"
+                id="askQuestion"
+                name="selectContact"
+                value="duvida"
+                checked={selectedOption === "duvida"}
+                onChange={handleOptionChange}
+              />
               <label htmlFor="askQuestion"> Dúvida</label>
             </div>
-          </article>
+          </div>
         </section>
         <section className="flex flex-col col-span-2 ">
-          <label htmlFor="menssage"> Mensagem *</label>
+          <label htmlFor="message"> Mensagem *</label>
           <textarea
-            id="texto"
-            name="texto"
+            id="message"
+            name="message"
             rows="4"
             cols="50"
-            className="border  border-green-900 pb-16 rounded-md pl-2"
+            className={`border ${
+              messageValid ? "border-green-900" : "border-red-500"
+            } pb-16 rounded-md pl-2`}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </section>
-        <section className=" col-span-2 ">
-          <input type="checkbox" id="contact" name="contact" />
-          <label htmlFor="contact" className="pl-2">
-            {"Concordo em receber mensagem da equipe * "}
-          </label>
-        </section>
-        <section className=" col-span-2">
+        <section className="col-span-2">
           <input
-            className=" bg-emerald-800 w-full p-4 text-white font-semibold text-center rounded-md cursor-pointer "
+            type="checkbox"
+            id="agree"
+            name="agree"
+            className="mr-2"
+            checked={agree}
+            onChange={(e) => setAgree(e.target.checked)}
+          />
+          <label htmlFor="agree" className="pl-2">
+            Concordo em receber mensagem da equipe *
+          </label>
+          {!agreeValid && (
+            <p className="text-red-500 text-sm">
+              Você precisa concordar em receber mensagens da equipe.
+            </p>
+          )}
+        </section>
+        <section className="col-span-2">
+          <input
+            className="bg-emerald-800 w-full p-4 text-white font-semibold text-center rounded-md cursor-pointer"
             type="submit"
             value="Enviar"
           />
