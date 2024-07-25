@@ -14,6 +14,81 @@ function Suport() {
   const [selectedOptionValid, setSelectedOptionValid] = useState(true);
   const [messageValid, setMessageValid] = useState(true);
   const [agreeValid, setAgreeValid] = useState(true);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      alert("Enviado com sucesso!");
+      restForm();
+    } else {
+      alert("Preencha todos os campos obrigatórios");
+    }
+  };
+  const validateForm = () => {
+    let isValid = true;
+
+    if (name.trim() === "") {
+      setNameValid(false);
+      isValid = false;
+    } else {
+      setNameValid(true);
+    }
+
+    if (lastName.trim() === "") {
+      setLastNameValid(false);
+      isValid = false;
+    } else {
+      setLastNameValid(true);
+    }
+
+    if (email.trim() === "") {
+      setEmailValid(false);
+      isValid = false;
+    } else {
+      setEmailValid(true);
+    }
+
+    if (selectedOption === "") {
+      setSelectedOptionValid(false);
+      isValid = false;
+    } else {
+      setSelectedOptionValid(true);
+    }
+
+    if (message.trim() === "") {
+      setMessageValid(false);
+      isValid = false;
+    } else {
+      setMessageValid(true);
+    }
+
+    if (!agree) {
+      setAgreeValid(false);
+      isValid = false;
+    } else {
+      setAgreeValid(true);
+    }
+
+    return isValid;
+  };
+  const resetForm = () => {
+    setName("");
+    setLastName("");
+    setEmail("");
+    setSelectedOption("");
+    setMessage("");
+    setAgree(false);
+    setNameValid(true);
+    setLastNameValid(true);
+    setEmailValid(true);
+    setSelectedOptionValid(true);
+    setMessageValid(true);
+    setAgreeValid(true);
+  };
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
   return (
     <article className="bg-white w-5/12 max-sm:w-screen p-10 m-14  border rounded-xl">
       <h1 className="text-3xl mb-10 font-semibold ">Fale Conosco</h1>
