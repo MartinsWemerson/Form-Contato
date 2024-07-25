@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Suport() {
   const [name, setName] = useState("");
-  const [LastName, setLasName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [message, setMessage] = useState("");
@@ -78,6 +78,7 @@ function Suport() {
     setSelectedOption("");
     setMessage("");
     setAgree(false);
+
     setNameValid(true);
     setLastNameValid(true);
     setEmailValid(true);
@@ -93,32 +94,60 @@ function Suport() {
     <article className="bg-white w-5/12 max-sm:w-screen p-10 m-14  border rounded-xl">
       <h1 className="text-3xl mb-10 font-semibold ">Fale Conosco</h1>
 
-      <form action="" className="grid grid-cols-2 gap-8">
+      <form className="grid grid-cols-2 gap-8" onSubmit={handleFormSubmit}>
         <section className="flex flex-col max-md:col-span-2  ">
-          <label htmlFor="name">Nome *</label>
+          <label
+            htmlFor="name"
+            className={`${nameValid ? "text-gray-900" : "text-red-500"}`}
+          >
+            {" "}
+            Nome *
+          </label>
           <input
-            className="border border-green-900 h-12 rounded-md pl-2"
+            className={`border ${
+              nameValid ? "border-green-900" : "border-red-500"
+            } h-12 rounded-md pl-2`}
             type="text"
             id="name"
             name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </section>
         <section className="flex flex-col max-md:col-span-2 ">
-          <label htmlFor="ltname">Sobre Nome *</label>
+          <label
+            htmlFor="lastName"
+            className={`${lastNameValid ? "text-gray-900" : "text-red-500"}`}
+          >
+            Sobre Nome *
+          </label>
           <input
-            className=" border  border-green-900 h-12 rounded-md pl-2"
+            className={`border ${
+              lastNameValid ? "border-green-900" : "border-red-500"
+            } h-12 rounded-md pl-2`}
             type="text"
-            id="ltname"
-            name="ltname"
+            id="lastName"
+            name="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
           />
         </section>
         <section className="flex flex-col col-span-2 ">
-          <label htmlFor="email">Email *</label>
+          <label
+            htmlFor="email"
+            className={` ${emailValid ? "text-gray-900" : "text-red-500"}`}
+          >
+            Email *
+          </label>
           <input
-            className=" border  border-green-900 h-12 rounded-md pl-2 "
+            className={`  ${
+              emailValid ? "border-green-900" : "border-red-500"
+            }   border  border-green-900 h-12 rounded-md pl-2 `}
             type="email"
             id="email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </section>
         <section className="col-span-2">
