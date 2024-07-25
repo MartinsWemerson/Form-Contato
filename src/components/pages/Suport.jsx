@@ -1,6 +1,19 @@
 import { useState } from "react";
 
 function Suport() {
+  const [name, setName] = useState("");
+  const [LastName, setLasName] = useState("");
+  const [email, setEmail] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
+  const [message, setMessage] = useState("");
+  const [agree, setAgree] = useState(false);
+
+  const [nameValid, setNameValid] = useState(true);
+  const [lastNameValid, setLastNameValid] = useState(true);
+  const [emailValid, setEmailValid] = useState(true);
+  const [selectedOptionValid, setSelectedOptionValid] = useState(true);
+  const [messageValid, setMessageValid] = useState(true);
+  const [agreeValid, setAgreeValid] = useState(true);
   return (
     <article className="bg-white w-5/12 max-sm:w-screen p-10 m-14  border rounded-xl">
       <h1 className="text-3xl mb-10 font-semibold ">Fale Conosco</h1>
