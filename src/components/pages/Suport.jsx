@@ -20,8 +20,6 @@ function Suport() {
     if (validateForm()) {
       alert("Enviado com sucesso!");
       resetForm();
-    } else {
-      alert("Preencha todos os campos obrigatórios");
     }
   };
   const validateForm = () => {
